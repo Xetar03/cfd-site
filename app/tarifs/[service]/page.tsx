@@ -8,6 +8,37 @@ interface TarifsPageProps {
   params: Promise<{ service: string }>;
 }
 
+
+const servicesContent: Record<
+  string,
+  { title: string; description: string; tarifs: { label: string; price: string }[] }
+> = {
+  "climatisation": {
+    title: "Climatisation",
+    description: "Découvrez nos formules pour l’installation et l’entretien de climatisations.",
+    tarifs: [
+      { label: "Installation", price: "1200 €" },
+      { label: "Entretien annuel", price: "150 €" },
+      { label: "Dépannage", price: "90 €" },
+    ],
+  },
+  "chaudiere": {
+    title: "Chaudière",
+    description: "Nos solutions économiques et écologiques pour le chauffage.",
+    tarifs: [],
+  },
+  "pompes-a-chaleur": {
+    title: "Pompe àhaleur",
+    description: "Intervention rapide et efficace en cas de panne.",
+    tarifs: [
+      { label: "Diagnostic", price: "70 €" },
+      { label: "Main d’œuvre / heure", price: "60 €" },
+      { label: "Urgence 24/7", price: "100 €" },
+    ],
+  },
+};
+
+
 export default function TarifsPage({ params }: TarifsPageProps) {
   const { service } = use(params); // ✅ unwrap la Promise
   const data = servicesContent[service];
@@ -34,11 +65,19 @@ export default function TarifsPage({ params }: TarifsPageProps) {
         </h1>
         <p className="text-gray-600 mb-8">{data.description}</p>
 
-        {service === "pompes-a-chaleur" ? (
+        {service === "chaudiere" ? (
           <div className="space-y-8">
             {/* Type chaudière */}
+            <div className="text-gray-600 mb-8">
+              <h2 className="text-2xl text-[#1C4A6E] mb-8">Installation et dépannage :</h2>
+              <p>Tarifs des installations et des dépannage sur devis:</p>
+              <ul className="list-disc ml-10 mt-5">
+                <li>Installation - À partir de XXX€ - Demander un devis</li>
+                <li>Dépannage - À partir de XXX€ - Demander un devis</li>
+              </ul>
+            </div>
             <div>
-              <h2 className="text-xl font-bold mb-2">Type de chaudière :</h2>
+              <h3 className="text-xl mb-3">Type de chaudière :</h3>
               <div className="flex gap-4">
                 <button
                   onClick={() => setType("gaz")}
@@ -105,31 +144,3 @@ export default function TarifsPage({ params }: TarifsPageProps) {
   );
 }
 
-const servicesContent: Record<
-  string,
-  { title: string; description: string; tarifs: { label: string; price: string }[] }
-> = {
-  "climatisation": {
-    title: "Climatisation",
-    description: "Découvrez nos formules pour l’installation et l’entretien de climatisations.",
-    tarifs: [
-      { label: "Installation", price: "1200 €" },
-      { label: "Entretien annuel", price: "150 €" },
-      { label: "Dépannage", price: "90 €" },
-    ],
-  },
-  "pompes-a-chaleur": {
-    title: "Pompes à chaleur",
-    description: "Nos solutions économiques et écologiques pour le chauffage.",
-    tarifs: [],
-  },
-  "depannage": {
-    title: "Dépannage",
-    description: "Intervention rapide et efficace en cas de panne.",
-    tarifs: [
-      { label: "Diagnostic", price: "70 €" },
-      { label: "Main d’œuvre / heure", price: "60 €" },
-      { label: "Urgence 24/7", price: "100 €" },
-    ],
-  },
-};

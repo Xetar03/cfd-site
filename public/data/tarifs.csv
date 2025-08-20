@@ -1,0 +1,8 @@
+service,type,distance_min,distance_max,prix
+chaudiere,gaz,0,10,3500
+chaudiere,gaz,11,50,3700
+chaudiere,gaz,51,100,4000
+chaudiere,fioul,0,10,3800
+chaudiere,fioul,11,50,4100
+chaudiere,fioul,51,100,4500
+,,,,

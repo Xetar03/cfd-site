@@ -1,6 +1,6 @@
 "use client";
 
-import { Wrench, Snowflake, Sun } from "lucide-react";
+import { Flame , Snowflake, Sun } from "lucide-react";
 import Link from "next/link";
 
 export default function Services() {
@@ -18,19 +18,19 @@ export default function Services() {
             </div>
           </Link>
 
+          <Link href="/tarifs/chaudiere" className="block">
+            <div className="shadow-lg rounded-2xl p-6 flex flex-col items-center bg-white hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
+              <Flame className="w-12 h-12 text-red-600 mb-4" />
+              <h3 className="text-xl font-bold mb-2">Chaudière</h3>
+              <p className="text-gray-600">Installation, entretien et dépannage de chaudières.</p>
+            </div>
+          </Link>
+
           <Link href="/tarifs/pompes-a-chaleur" className="block">
             <div className="shadow-lg rounded-2xl p-6 flex flex-col items-center bg-white hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
               <Sun className="w-12 h-12 text-[#F2B705] mb-4" />
               <h3 className="text-xl font-bold mb-2">Pompes à chaleur</h3>
               <p className="text-gray-600">Solutions écologiques et économiques pour chauffer.</p>
-            </div>
-          </Link>
-
-          <Link href="/tarifs/depannage" className="block">
-            <div className="shadow-lg rounded-2xl p-6 flex flex-col items-center bg-white hover:shadow-xl hover:scale-105 transition transform cursor-pointer">
-              <Wrench className="w-12 h-12 text-gray-700 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Dépannage</h3>
-              <p className="text-gray-600">Interventions rapides et efficaces en cas de panne.</p>
             </div>
           </Link>
 
