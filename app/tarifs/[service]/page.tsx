@@ -4,6 +4,7 @@ import { use } from "react";
 import Layout from "@/components/main/Layout";
 import { useState } from "react";
 import { useCsvApi } from "@/hooks/useCsvApi";
+import DevisDialog from "@/components/other/DevisDialog";
 
 interface TarifsPageProps {
   params: Promise<{ service: string }>;
@@ -58,18 +59,53 @@ export default function TarifsPage({ params }: TarifsPageProps) {
             Estimation d’entretien selon le type de chaudière et la distance.
           </p>
 
-          {/* ✅ Bloc "Installation et dépannage — sur devis" réinséré */}
-          <div className="text-gray-600 mb-8">
-            <h2 className="text-2xl text-[#1C4A6E] mb-4">Installation et dépannage :</h2>
-            <p>Tarifs des installations et des dépannages uniquement sur devis&nbsp;:</p>
-            <ul className="list-disc ml-6 mt-4 space-y-1">
-              <li>Installation — À partir de XXX€ — Demander un devis</li>
-              <li>Dépannage — À partir de XXX€ — Demander un devis</li>
-            </ul>
+          {/* ✅ Bloc "Installation et dépannage — sur devis" amélioré */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-serif text-[#1C4A6E] mb-6">
+              Installation et dépannage
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Pour ces prestations, chaque intervention est unique.  
+              Nos tarifs sont établis sur devis personnalisé en fonction de votre besoin.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Card Installation */}
+              <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition">
+                <div>
+                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">
+                    Installation
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    À partir de <span className="font-semibold">XXX €</span>  
+                    selon le type de chaudière et les spécificités du chantier.
+                  </p>
+                </div>
+                <DevisDialog service="Installation" />
+              </div>
+
+              {/* Card Dépannage */}
+              <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition">
+                <div>
+                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">
+                    Dépannage
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Intervention rapide et efficace.  
+                    Tarifs sur devis en fonction de la panne et de la distance.
+                  </p>
+                </div>
+              <DevisDialog service="Dépannage" />
+              </div>
+            </div>
           </div>
+
 
           {/* UI de calcul d’entretien */}
           <div className="space-y-8">
+            <h2 className="text-2xl font-serif text-[#1C4A6E] mb-6">
+              Entretien
+            </h2>
             {/* Type chaudière */}
             <div>
               <h3 className="text-xl mb-3">Type de chaudière :</h3>
