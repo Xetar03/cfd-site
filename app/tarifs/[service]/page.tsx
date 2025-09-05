@@ -5,6 +5,7 @@ import Layout from "@/components/main/Layout";
 import { useState } from "react";
 import { useCsvApi } from "@/hooks/useCsvApi";
 import DevisDialog from "@/components/other/DevisDialog";
+import DepannageDialog from "@/components/other/DepannageDialog";
 
 interface TarifsPageProps {
   params: Promise<{ service: string }>;
@@ -73,12 +74,9 @@ export default function TarifsPage({ params }: TarifsPageProps) {
               {/* Card Installation */}
               <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition">
                 <div>
-                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">
-                    Installation
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">Installation</h3>
                   <p className="text-gray-600 mb-4">
-                    À partir de <span className="font-semibold">XXX €</span>  
-                    selon le type de chaudière et les spécificités du chantier.
+                    Installation sur devis en fonction de votre besoin.
                   </p>
                 </div>
                 <DevisDialog service="Installation" />
@@ -87,15 +85,13 @@ export default function TarifsPage({ params }: TarifsPageProps) {
               {/* Card Dépannage */}
               <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col justify-between hover:shadow-xl transition">
                 <div>
-                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">
-                    Dépannage
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#1C4A6E] mb-2">Dépannage</h3>
                   <p className="text-gray-600 mb-4">
                     Intervention rapide et efficace.  
                     Tarifs sur devis en fonction de la panne et de la distance.
                   </p>
                 </div>
-              <DevisDialog service="Dépannage" />
+                <DepannageDialog service="Dépannage" />
               </div>
             </div>
           </div>
