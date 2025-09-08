@@ -5,3 +5,15 @@ chaudiere,haute_t,30,145
 chaudiere,basse_t,0,135
 chaudiere,basse_t,15,145
 chaudiere,basse_t,30,155
+climatisation,haute_t,0,125
+climatisation,haute_t,15,135
+climatisation,haute_t,30,145
+climatisation,basse_t,0,135
+climatisation,basse_t,15,145
+climatisation,basse_t,30,155
+pompes-a-chaleur,haute_t,0,125
+pompes-a-chaleur,haute_t,15,135
+pompes-a-chaleur,haute_t,30,145
+pompes-a-chaleur,basse_t,0,135
+pompes-a-chaleur,basse_t,15,145
+pompes-a-chaleur,basse_t,30,155
