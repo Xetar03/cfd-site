@@ -16,9 +16,9 @@ export default function Hero() {
         <p className="text-lg text-gray-600 mb-6">
           Installation, entretien et dépannage de climatisations et pompes à chaleur.
         </p>
-        <button className="bg-[#F2B705] text-[#1C4A6E] hover:bg-[#1C4A6E] hover:text-white rounded-xl px-6 py-3 text-lg">
+        {/*<button className="bg-[#F2B705] text-[#1C4A6E] hover:bg-[#1C4A6E] hover:text-white rounded-xl px-6 py-3 text-lg">
           Demander un devis gratuit
-        </button>
+        </button>*/}
       </section>
   );
 }

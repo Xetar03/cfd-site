@@ -1,5 +1,3 @@
-"use client";
-
 import Layout from "@/components/main/Layout";
 import Hero from "@/components/homepage/Hero";
 import Services from "@/components/main/Services";

@@ -27,7 +27,7 @@ export default function TarifsPage({ params }: TarifsPageProps) {
   if (loading) {
     return (
       <Layout>
-        <div className="p-10 text-gray-600">Chargement...</div>
+        <div className="p-10 text-gray-600 pt-28">Chargement...</div>
       </Layout>
     );
   }
@@ -59,7 +59,7 @@ export default function TarifsPage({ params }: TarifsPageProps) {
 
     return (
       <Layout>
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4 pt-28">
           <h1 className="text-4xl font-serif text-[#1C4A6E] mb-6">Tarifs — {serviceComponents[service]}</h1>
           <p className="text-gray-600 mb-8">
             Estimation d’entretien selon le type de chaudière et la distance.

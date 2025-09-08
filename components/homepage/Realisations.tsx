@@ -49,11 +49,6 @@ export default function Realisations() {
                     priority={i < 2}
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-[#1C4A6E]">
-                    {projet.titre}
-                  </h3>
-                </div>
               </div>
             </SwiperSlide>
           ))}

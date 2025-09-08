@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -10,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
 
       {/* Contenu principal (prend toute la hauteur disponible) */}
-      <main className="flex-grow pt-28">
+      <main className="flex-grow">
         {children}
       </main>
 
