@@ -1,6 +1,15 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
+// Mapping operation → couleur
+const operationColors: Record<string, string> = {
+  "Dépannage-chaudiere": "1",   /*/ bleu
+  "Installation": "2", // vert
+  "Entretien": "7",    // orange
+  "Inspection": "3",   // violet*/
+};
+
+
 function getCalendar() {
   const auth = new google.auth.GoogleAuth({
     credentials: {
@@ -79,7 +88,7 @@ async function deleteEventBySlot(
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, phone, address, slot, service } = body;
+    const { name, phone, address, slot, operation, description } = body;
 
     if (!name || !phone || !slot) {
       return NextResponse.json({ error: "Champs manquants" }, { status: 400 });
@@ -101,7 +110,7 @@ export async function POST(req: Request) {
     // Création de l’événement
     const event = {
       summary: `🔧 Dépannage - ${name}`,
-      description: `Service: ${service || "Non précisé"}\nNom: ${name}\nTel: ${phone}\nAdresse: ${address || "Non précisée"}`,
+      description: `operation: ${operation || "Non précisé"}\nNom: ${name}\nTel: ${phone}\nAdresse: ${address || "Non précisée"}\nDescription: ${description || "Non précisée"}`,
       start: { dateTime: slot, timeZone: "Europe/Paris" },
       end: {
         dateTime: new Date(new Date(slot).getTime() + 60 * 60 * 1000).toISOString(),

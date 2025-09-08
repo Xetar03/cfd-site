@@ -79,7 +79,7 @@ export default function TarifsPage({ params }: TarifsPageProps) {
                     Installation sur devis en fonction de votre besoin.
                   </p>
                 </div>
-                <DevisDialog service="Installation" />
+                <DevisDialog operation="Installation" />
               </div>
 
               {/* Card Dépannage */}
@@ -91,7 +91,7 @@ export default function TarifsPage({ params }: TarifsPageProps) {
                     Tarifs sur devis en fonction de la panne et de la distance.
                   </p>
                 </div>
-                <DepannageDialog service="Dépannage" />
+                <DepannageDialog operation="Dépannage"  />
               </div>
             </div>
           </div>

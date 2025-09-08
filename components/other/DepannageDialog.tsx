@@ -3,16 +3,16 @@
 import { Dialog } from "@headlessui/react";
 import { useEffect, useState } from "react";
 
-export default function DepannageDialog({ service }: { service: string }) {
+export default function DepannageDialog({ operation }: { operation: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", address: "", slot: "" });
+  const [form, setForm] = useState({ name: "", phone: "", address: "", slot: "", description: "" });
   const [slots, setSlots] = useState<{ id: string; start: string; end: string; summary?: string }[]>([]);
   const [currentDayIndex, setCurrentDayIndex] = useState(0);
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  if (!form.name || !form.phone || !form.slot) {
+  if (!form.name || !form.phone || !form.slot || !form.description) {
     alert("⚠️ Merci de remplir tous les champs avant de réserver !");
     return;
   }
@@ -20,7 +20,7 @@ export default function DepannageDialog({ service }: { service: string }) {
   const res = await fetch("/api/calendar/book", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...form, service }),
+    body: JSON.stringify({ ...form, operation }),
   });
 
   const data = await res.json();
@@ -98,6 +98,14 @@ export default function DepannageDialog({ service }: { service: string }) {
             onChange={(e) => setForm({ ...form, address: e.target.value })}
             className="w-full border p-2 mb-4 rounded"
           />
+
+          <textarea
+            placeholder="Description de votre panne"
+            value={form.description || ""}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+            className="w-full border p-2 mb-4 rounded h-24"
+          />
+
 
           {/* ✅ Navigation entre jours */}
           {days.length > 0 && (

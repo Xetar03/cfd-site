@@ -3,7 +3,7 @@
 import { Dialog } from "@headlessui/react";
 import { useState } from "react";
 
-export default function DevisDialog({ service }: { service: string }) {
+export default function DevisDialog({ operation }: { operation: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -13,7 +13,7 @@ export default function DevisDialog({ service }: { service: string }) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("📩 Données envoyées :", { service, ...formData });
+    console.log("📩 Données envoyées :", { operation, ...formData });
     // TODO: envoyer vers API (mail, base de données...)
     setIsOpen(false);
   };
@@ -36,7 +36,7 @@ export default function DevisDialog({ service }: { service: string }) {
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="bg-white rounded-xl max-w-md w-full p-6 shadow-lg">
             <Dialog.Title className="text-xl font-bold mb-4 text-[#1C4A6E]">
-              Demande de devis — {service}
+              Demande de devis — {operation}
             </Dialog.Title>
 
             <form onSubmit={handleSubmit} className="space-y-4">
