@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
 
       {/* Contenu principal (prend toute la hauteur disponible) */}
-      <main className="flex-grow">
+      <main className="flex-grow pt-18">
         {children}
       </main>
 
