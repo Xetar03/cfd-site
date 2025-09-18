@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { Menu, X } from "lucide-react"; // icons (npm install lucide-react)
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +14,11 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="absolute left-4">
           <div className="flex items-center space-x-2">
-            <span className="text-2xl font-serif text-[#1C4A6E]">CFD</span>
+            <img 
+              src="/images/Logo.png" 
+              alt="logo" 
+              className="h-10 w-auto" // ajuste la taille
+            />
           </div>
         </Link>
 

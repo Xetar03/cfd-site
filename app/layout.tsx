@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CFD",
+  title: "FALOW ÉNERGIE",
   description: "Confort toute l'année, hiver comme été.",
 };
 
