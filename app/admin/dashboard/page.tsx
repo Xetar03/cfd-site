@@ -6,6 +6,30 @@ import Link from "next/link";
 export default function DashboardPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  async function handleGenerate() {
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/calendar/generate", {
+        method: "POST",
+      });
+
+      if (!res.ok) throw new Error("Erreur API");
+
+      const data = await res.json();
+      setMessage(`✅ ${data.inserted} créneaux générés avec succès !`);
+    } catch (err) {
+      console.error(err);
+      setMessage("❌ Erreur lors de la génération des créneaux.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") !== "true") {
@@ -60,6 +84,19 @@ export default function DashboardPage() {
                 Gérer les tarifs
                 </button>
             </Link>
+          </div>
+
+          <div className="bg-white shadow rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-2">{loading ? "Création en cours..." : "Créer des créneaux"}</h2>
+            <p className="text-gray-600">
+            Gérer vos crénaux de reservation<br/>
+            {message && (
+        <span className="mt-2 text-sm text-gray-700">{message}</span>
+      )}
+            </p>
+              <button onClick={handleGenerate}  className="mt-4 px-4 py-2 bg-[#1C4A6E] text-white rounded-lg hover:shadow hover:scale-102 transition transform cursor-pointer">
+                Créer des crénaux : Une semaine entière de crénaux de reservation
+              </button>
           </div>
 
           <div className="italic bg-grey shadow rounded-lg p-6">

@@ -11,9 +11,11 @@ export default function Realisations() {
   const projets = [
     { titre: "Installation chaudière basse température", img: "/images/clim1.jpg" },
     { titre: "Pose d’une pompe à chaleur", img: "/images/clim2.jpg" },
+    { titre: "Climatisation réversible", img: "/images/clim3.jpg" },
     { titre: "Climatisation réversible", img: "/images/pac1.jpg" },
     { titre: "Installation chaudière basse température", img: "/images/clim1.jpg" },
     { titre: "Pose d’une pompe à chaleur", img: "/images/clim2.jpg" },
+    { titre: "Climatisation réversible", img: "/images/clim3.jpg" },
     { titre: "Climatisation réversible", img: "/images/pac1.jpg" },
   ];
 

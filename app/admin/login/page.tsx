@@ -62,6 +62,8 @@ export default function LoginPage() {
         >
           Se connecter
         </button>
+        
+      <a href="/">Retour</a>
       </form>
     </div>
   );

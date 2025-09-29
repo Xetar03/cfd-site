@@ -32,7 +32,7 @@ export default function Header() {
           <a href="/#realisations">Réalisations</a>
           <a href="/#avis">Avis</a>
           <a href="/#contact">Contact</a>
-          <a href="/boutique">Boutique</a>
+          {/* <a href="/boutique">Boutique</a> */}
         </nav>
 
         {/* Burger button mobile */}
@@ -65,7 +65,7 @@ export default function Header() {
             <a href="/#realisations" onClick={() => setMobileMenuOpen(false)}>Réalisations</a>
             <a href="/#avis" onClick={() => setMobileMenuOpen(false)}>Avis</a>
             <a href="/#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <a href="/boutique" onClick={() => setMobileMenuOpen(false)}>Boutique</a>
+            {/*<a href="/boutique" onClick={() => setMobileMenuOpen(false)}>Boutique</a>*/}
           </nav>
         </Dialog.Panel>
       </Dialog>

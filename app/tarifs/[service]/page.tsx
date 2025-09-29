@@ -102,7 +102,7 @@ export default function TarifsPage({ params }: TarifsPageProps) {
           </div>
         
           {/* UI de calcul d’entretien */}
-          {service === "chaudiere" && (
+          {/*service === "chaudiere"*/ false && (
             <div className="space-y-8">
               <h2 className="text-2xl font-serif text-[#1C4A6E] mb-6">
                 Entretien

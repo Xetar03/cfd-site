@@ -16,7 +16,7 @@ type Product = {
 const products: Product[] = [
   { id: 1, name: "Climatisation murale", price: 350, image: "/images/boutique/clim1.jpg" },
   { id: 2, name: "Pompe à chaleur air/eau", price: 450, image: "/images/boutique/pac1.jpg" },
-  { id: 3, name: "Chaudière gaz condensation", price: 2800, image: "/images/boutique/chaudiere1.jpg" },
+  { id: 3, name: "Chaudière gaz Viessmann", price: 2800, image: "/images/boutique/chaudiere1.jpg" },
   { id: 4, name: "Thermostat connecté", price: 250, image: "/images/boutique/thermostat.jpg" },
 ];
 
