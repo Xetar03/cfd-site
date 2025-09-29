@@ -27,16 +27,16 @@ export default function DevisDialog({ operation }: { operation: string }) {
 
       if (!res.ok) throw new Error("Erreur API");
 
-      // ✅ Reset form + fermer la boite
-      setFormData({
-        name: "",
-        firstName: "",
-        phone: "",
-        email: "",
-        message: "",
-        callback: false,
-      });
-      setIsOpen(false);
+      // // ✅ Reset form + fermer la boite
+      // setFormData({
+      //   name: "",
+      //   firstName: "",
+      //   phone: "",
+      //   email: "",
+      //   message: "",
+      //   callback: false,
+      // });
+      // setIsOpen(false);
 
       // ✅ Notification
       setNotif("✅ Demande envoyée avec succès !");

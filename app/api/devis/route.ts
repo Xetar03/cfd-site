@@ -6,14 +6,15 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
+
     const body = await req.json();
 
     const { operation, name, firstName, phone, email, message, callback } = body;
 
-    await resend.emails.send({
-      from: "Falow Energies <onboarding@resend.dev>", // à personnaliser si tu as un domaine validé
-      to: "contact@falow-energies.fr",
-      subject: `📩 Nouvelle demande de devis — ${operation}`,
+    const { data, error } = await resend.emails.send({
+      from: "onboarding@resend.dev", // ← adresse test fournie
+      to: "contact@falow-energie.fr",
+      subject: `Nouvelle demande de devis — ${operation}`,
       html: `
         <h2>Nouvelle demande de devis</h2>
         <p><strong>Opération :</strong> ${operation}</p>
@@ -26,6 +27,7 @@ export async function POST(req: Request) {
         <p><strong>Être rappelé :</strong> ${callback ? "✅ Oui" : "❌ Non"}</p>
       `,
     });
+
 
     return NextResponse.json({ success: true });
   } catch (error) {
